@@ -14,6 +14,7 @@ export default class Controller{
         this.server.get("/sin",(req,res)=>this.getSin(req,res));
         this.server.get("/cos",(req,res)=>this.getCos(req,res));
         this.server.get("/tan",(req,res)=>this.getTan(req,res));
+        this.server.get("/cotan",(req,res)=>this.getCotan(req,res));
     }
 
     public getSin(req:Request,res:Response){
@@ -29,6 +30,11 @@ export default class Controller{
     public getTan(req:Request,res:Response){
         const n = parseInt(req.query.n.toString());
         res.send(this.service.tan(n).toString());
+    }
+
+    public getCotan(req:Request,res:Response){
+        res.status(500);
+        res.send("");
     }
 
 }
